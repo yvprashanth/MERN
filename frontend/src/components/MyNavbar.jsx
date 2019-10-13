@@ -66,12 +66,6 @@ class MyNavbar extends React.Component {
             <li className="nav-item">
               <Link to="/posts" name="Page2" className="nav-link">Posts</Link>
             </li>
-            <NavDropdown name="Dropdown">
-              <a className="dropdown-item" href="/">Action</a>
-              <a className="dropdown-item" href="/">Another action</a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="/">Something else here</a>
-            </NavDropdown>
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />

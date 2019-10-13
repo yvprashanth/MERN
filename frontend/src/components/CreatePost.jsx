@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, DropdownButton, MenuItem, Dropdown } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { fetchCategories } from '../actions'
 import _ from 'lodash';
+import DropdownItem from 'react-bootstrap/DropdownItem';
 
 class CreatePost extends Component { 
  
@@ -11,6 +12,9 @@ class CreatePost extends Component {
     }
 
     render(){
+        const { myStaticCategories } = this.props;
+        console.log(typeof myStaticCategories);
+        
         return(
             <div>
                 <Container>
@@ -34,19 +38,26 @@ class CreatePost extends Component {
                             </Form.Group>
 
                             <Form.Group as={Col} controlId="formGridState">
-                            <Form.Label>State</Form.Label>
-                            <Form.Control as="select">
-                                <option>Choose...</option>
-                                <option>...</option>
-                            </Form.Control>
-                            </Form.Group>
-
+                            <Form.Label>Category</Form.Label>
+                            <select className="form-control">
+                                <option value="" className="disabled">Select Category</option>
+                                {_.map(myStaticCategories, category => (
+                                    <option
+                                        key={category.name}
+                                        value={category.name}
+                                    >
+                                        {category.name}
+                                    </option>
+                                ))}
+                            </select>
+                            </Form.Group>                           
                         </Form.Row>
+
+
 
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
-  
                     </Form>
                 </Container>
             </div>
@@ -55,7 +66,7 @@ class CreatePost extends Component {
 }
 
 function mapStateToProps(state){
-    return { categories : state.categories }
+    return { myStaticCategories : state.categories }
 }
 
 const mapDispatchToProps = (dispatch) => ({
