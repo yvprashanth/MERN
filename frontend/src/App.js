@@ -4,6 +4,8 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import MyNavbar from './components/MyNavbar'
+import Home from './components/Home'
+import CreatePost from './components/CreatePost'
 
 class App extends Component {
   render() {
@@ -11,12 +13,8 @@ class App extends Component {
       <Router>
         <div>
           <MyNavbar />
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-          </header>
+          <Route exact path='/' render={() => <Home />} />
+          <Route path='/createpost' render={() => <CreatePost />} />
         </div>
       </Router>
     );
