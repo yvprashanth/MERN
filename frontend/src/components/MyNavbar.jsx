@@ -53,7 +53,7 @@ class MyNavbar extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <li className="navbar-brand">
-              <Link to="/" name="Home" className="nav-link">Navbar</Link>
+              <Link to="/" name="Home" className="nav-link">Readable</Link>
             </li>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -61,10 +61,10 @@ class MyNavbar extends React.Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to="/page1" name="Page1" className="nav-link">Page 1</Link>
+              <Link to="/categories" name="Page1" className="nav-link">Categories</Link>
             </li>
             <li className="nav-item">
-              <Link to="/page2" name="Page2" className="nav-link">Page 2</Link>
+              <Link to="/posts" name="Page2" className="nav-link">Posts</Link>
             </li>
             <NavDropdown name="Dropdown">
               <a className="dropdown-item" href="/">Action</a>

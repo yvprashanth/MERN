@@ -15,7 +15,6 @@ export default class CreatePost extends Component {
         return(
             <div>
                 <Container>
-                    <h2>Create Post</h2>
                     <Form>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridEmail">
