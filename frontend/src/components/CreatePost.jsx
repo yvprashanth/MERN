@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { fetchCategories } from '../actions'
+import _ from 'lodash';
 
 class CreatePost extends Component { 
  
     componentWillMount() {
-        this.props.fetchCategories();
+        this.props.myfetchCategories();
     }
 
     render(){
@@ -45,6 +46,7 @@ class CreatePost extends Component {
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
+  
                     </Form>
                 </Container>
             </div>
@@ -57,7 +59,7 @@ function mapStateToProps(state){
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchCategories: () => dispatch(fetchCategories())
+    myfetchCategories: () => dispatch(fetchCategories())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)

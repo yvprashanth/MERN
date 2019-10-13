@@ -15,7 +15,6 @@ function fetchCategoriesSuccess(data) {
 }
 
 export function fetchCategories(){
-    debugger
     return dispatch => {
         fetch('http://localhost:5000/categories', {headers : {'Authorization': 'Anything you want'}})
             .then(response => response.json())
