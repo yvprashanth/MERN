@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { connect } from 'react-redux'
+import { fetchCategories } from '../actions'
 
-
-
-export default class CreatePost extends Component { 
-    constructor(props){
-        super(props)
-        this.state = {
-
-        }
+class CreatePost extends Component { 
+ 
+    componentWillMount() {
+        this.props.fetchCategories();
     }
 
     render(){
@@ -53,3 +51,13 @@ export default class CreatePost extends Component {
         )
     }
 }
+
+function mapStateToProps(state){
+    return { categories : state.categories }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    fetchCategories: () => dispatch(fetchCategories())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)
