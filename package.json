@@ -1,7 +1,7 @@
 {
     "scripts": {
-        "server": "cd server && npm start", 
-        "client": "cd frontend && npm start", 
+        "server": "cd server && npm start",
+        "client": "cd frontend && npm start",
         "start": "concurrently - kill-others \"npm run server\" \"npm run client\"",
         "concurrently": "4.1.2"
     }

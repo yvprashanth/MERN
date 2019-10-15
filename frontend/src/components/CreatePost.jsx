@@ -46,7 +46,7 @@ class CreatePost extends Component {
                                         key={category.name}
                                         value={category.name}
                                     >
-                                        {category.name}
+                                        {_.capitalize(category.name)}
                                     </option>
                                 ))}
                             </select>
