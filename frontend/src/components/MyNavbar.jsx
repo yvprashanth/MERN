@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './CustomNavbar.css'
-import {  Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import {  Nav } from 'react-bootstrap';
 
 const NavItem = props => {
   const pageURI = window.location.pathname+window.location.search
