@@ -17,7 +17,7 @@ class Home extends Component {
                 <Jumbotron>
                     <h2>Welcome to Readable</h2>
                     <p>This is how to build a website with React, React-Router, Redux & React-Bootstrap</p>
-                    <Link to="/createpost">
+                    <Link to="/learnmore">
                         <Button bsStyle="primary">Learn More</Button>
                     </Link>
                     &nbsp;

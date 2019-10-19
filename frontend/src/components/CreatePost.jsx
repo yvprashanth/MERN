@@ -46,7 +46,7 @@ class CreatePost extends Component {
                                         key={category.name}
                                         value={category.name}
                                     >
-                                        {category.name}
+                                        {_.startCase(_.toLower(category.name))}
                                     </option>
                                 ))}
                             </select>
@@ -54,10 +54,11 @@ class CreatePost extends Component {
                         </Form.Row>
 
 
-
-                        <Button variant="primary" type="submit">
-                            Submit
-                        </Button>
+                        <div class="col-md-4 center-block">
+                            <Button variant="primary" type="submit" className="text-center">
+                                Submit
+                            </Button>
+                        </div>
                     </Form>
                 </Container>
             </div>

@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import MyNavbar from './components/MyNavbar'
 import Home from './components/Home'
 import CreatePost from './components/CreatePost'
+import Learnmore from './components/Learnmore'
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <MyNavbar />
           <Route exact path='/' render={() => <Home />} />
           <Route path='/createpost' render={() => <CreatePost />} />
+          <Route path='/learnmore' render={() => <Learnmore />} />
         </div>
       </Router>
     );
