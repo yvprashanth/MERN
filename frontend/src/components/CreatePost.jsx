@@ -46,11 +46,7 @@ class CreatePost extends Component {
                                         key={category.name}
                                         value={category.name}
                                     >
-<<<<<<< HEAD
-                                        {_.startCase(_.toLower(category.name))}
-=======
                                         {_.capitalize(category.name)}
->>>>>>> 55f85fe819faf83d95c1c966af78494b10326d26
                                     </option>
                                 ))}
                             </select>
