@@ -3,11 +3,12 @@ import { Container, Row, Col, Form, Button, DropdownButton, MenuItem, Dropdown }
 import { connect } from 'react-redux'
 import { fetchCategories } from '../actions'
 import _ from 'lodash';
+import uuid from "uuid";
 
 class CreatePost extends Component { 
     constructor(props){
         super(props)
-        this.state = { title:'My Catchy Title', content: "Random Content", author: "King of the world", category:"" }
+        this.state = { title:'My Catchy Title', content: "Random Content", author: "King of the world", category:"", posts:[] }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
  
@@ -26,16 +27,32 @@ class CreatePost extends Component {
     }
 
     handleSubmit(event){
+        debugger
         event.preventDefault();
-        console.log(event);
         const data = new FormData(event.target);
+        data.id = uuid.v4()
+        data.timestamp = Date.now()
+        data.title = this.state.title
+        data.content = this.state.content
+        data.author = this.state.author
+        data.category = this.state.category
         fetch('/posts', {
             method: 'POST',
             headers: new Headers({
                 'Authorization': 'Basic '+btoa('username:password'), 
             }), 
-            body: event,
+            body: data,
         });
+
+
+        fetch('/posts', {
+            method: 'GET',
+            headers: new Headers({
+                'Authorization': 'Basic '+btoa('username:password'), 
+            })
+        })
+            .then(response => response.json())
+            .then(data => this.setState({ posts : data}))
     }
 
     render(){
