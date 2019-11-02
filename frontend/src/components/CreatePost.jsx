@@ -27,7 +27,6 @@ class CreatePost extends Component {
     }
 
     handleSubmit(event){
-        debugger
         event.preventDefault();
         const data = new FormData(event.target);
         data.id = uuid.v4()
@@ -42,6 +41,8 @@ class CreatePost extends Component {
                 'Authorization': 'Basic '+btoa('username:password'), 
             }), 
             body: data,
+        }).then(function(response){
+            console.log(response)
         });
 
 
@@ -51,8 +52,8 @@ class CreatePost extends Component {
                 'Authorization': 'Basic '+btoa('username:password'), 
             })
         })
-            .then(response => response.json())
-            .then(data => this.setState({ posts : data}))
+        .then(response => response.json())
+        .then(data => this.setState({ posts : data}))
     }
 
     render(){
@@ -97,7 +98,7 @@ class CreatePost extends Component {
                         </Form.Row>
 
 
-                        <div className="col-md-4 center-block">
+                        <div className="">
                             <Button variant="primary" type="submit" className="text-center">
                                 Submit
                             </Button>
