@@ -164,6 +164,14 @@ router.get('/posts', (req, res) => {
 })
 
 router.post('/posts', bodyParser.json(), (req, res) => {
+    let body = '';
+    req.on('data', chunk => {
+        body += chunk.toString(); // convert Buffer to string
+    });
+    req.on('end', () => {
+        console.log(body);
+        res.end('ok');
+    });
     posts.add(req.token, req.body)
       .then(
           (data) => res.send(data),

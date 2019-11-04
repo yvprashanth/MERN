@@ -22,7 +22,6 @@ class CreatePost extends Component {
           corresponding values in state, it's
           super easy to update the state
         */
-        console.log(e.target.value)
         this.setState({ [e.target.name]: e.target.value });
     }
 
@@ -32,15 +31,18 @@ class CreatePost extends Component {
         data.id = uuid.v4()
         data.timestamp = Date.now()
         data.title = this.state.title
-        data.content = this.state.content
+        data.body = this.state.content
         data.author = this.state.author
         data.category = this.state.category
+        debugger
         fetch('/posts', {
             method: 'POST',
             headers: new Headers({
                 'Authorization': 'Basic '+btoa('username:password'), 
+                "Content-Type": "application/json"
             }), 
-            body: data,
+            // body: JSON.stringify(data)
+            body: JSON.stringify(data)
         }).then(function(response){
             console.log(response)
         });
@@ -58,7 +60,6 @@ class CreatePost extends Component {
 
     render(){
         const { myStaticCategories } = this.props;
-        
         return(
             <div>
                 <Container>
@@ -83,7 +84,18 @@ class CreatePost extends Component {
 
                             <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Category</Form.Label>
-                            <select className="form-control" onChange={this.handleChange}>
+                            <DropdownButton
+                                alignRight
+                                title="Dropdown right"
+                                id="dropdown-menu-align-right"
+                                >
+                                <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                                <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                                <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+                                <Dropdown.Divider />
+                                <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+                            </DropdownButton>
+                            <select className="form-control" onChange={this.handleSubmit}>
                                 <option value="" className="disabled">Select Category</option>
                                 {_.map(myStaticCategories, category => (
                                     <option
@@ -96,7 +108,6 @@ class CreatePost extends Component {
                             </select>
                             </Form.Group>                           
                         </Form.Row>
-
 
                         <div className="">
                             <Button variant="primary" type="submit" className="text-center">
