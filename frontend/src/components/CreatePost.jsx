@@ -22,12 +22,18 @@ class CreatePost extends Component {
           corresponding values in state, it's
           super easy to update the state
         */
-        this.setState({ [e.target.name]: e.target.value });
+       if(e.target.nodeName !== "SELECT"){
+          this.setState({ [e.target.name]: e.target.value });
+       } else { 
+           this.setState({category : e.target.value})
+       }
     }
 
     handleSubmit(event){
+        debugger
         event.preventDefault();
-        const data = new FormData(event.target);
+        var data = {}
+        data = new FormData(event.target);
         data.id = uuid.v4()
         data.timestamp = Date.now()
         data.title = this.state.title
@@ -46,7 +52,6 @@ class CreatePost extends Component {
         }).then(function(response){
             console.log(response)
         });
-
 
         fetch('/posts', {
             method: 'GET',
@@ -84,18 +89,7 @@ class CreatePost extends Component {
 
                             <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Category</Form.Label>
-                            <DropdownButton
-                                alignRight
-                                title="Dropdown right"
-                                id="dropdown-menu-align-right"
-                                >
-                                <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-                                <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-                                <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
-                                <Dropdown.Divider />
-                                <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
-                            </DropdownButton>
-                            <select className="form-control" onChange={this.handleSubmit}>
+                            <select className="form-control" onChange={this.handleChange}>
                                 <option value="" className="disabled">Select Category</option>
                                 {_.map(myStaticCategories, category => (
                                     <option
