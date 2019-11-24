@@ -22,9 +22,8 @@ class PostsList extends Component {
                     <Jumbotron>
                     {_.map(myPosts, post => (
                         <Card>
-                            <Card.Header>Post</Card.Header>
+                            <Card.Header><b>{post.title}</b></Card.Header>
                             <Card.Body>
-                                <Card.Title>{post.title}</Card.Title>
                                 <Card.Text>
                                     <i>Body:</i> {post.body}
                                 </Card.Text>
