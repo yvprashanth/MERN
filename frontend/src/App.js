@@ -7,6 +7,7 @@ import MyNavbar from './components/MyNavbar'
 import Home from './components/Home'
 import CreatePost from './components/CreatePost'
 import Learnmore from './components/Learnmore'
+import Posts from './components/Posts'
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path='/' render={() => <Home />} />
           <Route path='/createpost' render={() => <CreatePost />} />
           <Route path='/learnmore' render={() => <Learnmore />} />
+          <Route path='/posts' render={() => <Posts />} />
         </div>
       </Router>
     );

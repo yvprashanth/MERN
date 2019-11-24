@@ -30,7 +30,6 @@ class CreatePost extends Component {
     }
 
     handleSubmit(event){
-        debugger
         event.preventDefault();
         var data = {}
         data = new FormData(event.target);
@@ -40,7 +39,6 @@ class CreatePost extends Component {
         data.body = this.state.content
         data.author = this.state.author
         data.category = this.state.category
-        debugger
         fetch('/posts', {
             method: 'POST',
             headers: new Headers({

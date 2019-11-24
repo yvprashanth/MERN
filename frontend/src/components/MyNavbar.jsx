@@ -61,9 +61,6 @@ class MyNavbar extends React.Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to="/categories" name="Page1" className="nav-link">Categories</Link>
-            </li>
-            <li className="nav-item">
               <Link to="/posts" name="Page2" className="nav-link">Posts</Link>
             </li>
           </ul>
