@@ -2,15 +2,27 @@ import React, { Component } from 'react';
 import { Card, Container, Row, Col, Form, Button, DropdownButton, MenuItem, Dropdown, Jumbotron } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
+import _ from 'lodash';
 
 class PostsList extends Component { 
+    constructor(props){
+        super(props)
+        this.state = { posts: [] }
+    }
+
+    componentDidMount() {
+        this.props.myfetchPosts();
+    }
+
     render(){
+        const { myPosts } = this.props;
         return (
             <div>
                 <Container>
                     <Jumbotron>
+                    {_.map(myPosts, post => (
                         <Card>
-                            <Card.Header>Featured</Card.Header>
+                            <Card.Header>post.title</Card.Header>
                             <Card.Body>
                                 <Card.Title>Special title treatment</Card.Title>
                                 <Card.Text>
@@ -19,6 +31,7 @@ class PostsList extends Component {
                                 <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
                         </Card>
+                    ))}                        
                     </Jumbotron>
                 </Container>
             </div>

@@ -8,7 +8,7 @@ import uuid from "uuid";
 class CreatePost extends Component { 
     constructor(props){
         super(props)
-        this.state = { title:'My Catchy Title', content: "Random Content", author: "King of the world", category:"", posts:[] }
+        this.state = { title:'My Catchy Title', content: "Please enter any content", author: "King of the world", category:"", posts:[] }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
  
@@ -76,7 +76,7 @@ class CreatePost extends Component {
 
                         <Form.Group controlId="formGridContent">
                             <Form.Label>Content</Form.Label>
-                            <Form.Control placeholder={this.state.content} name="content" onChange={this.handleChange} />
+                            <Form.Control as="textarea" rows="4" placeholder={this.state.content} name="content" onChange={this.handleChange} />
                         </Form.Group>
 
                         <Form.Row>

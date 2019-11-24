@@ -18,11 +18,11 @@ class Home extends Component {
                     <h2>Welcome to Readable</h2>
                     <p>This is how to build a website with React, React-Router, Redux & React-Bootstrap</p>
                     <Link to="/learnmore">
-                        <Button bsStyle="primary">Learn More</Button>
+                        <Button bsstyle="primary">Learn More</Button>
                     </Link>
                     &nbsp;
                     <Link to="/createpost">
-                        <Button bsStyle="primary">Create Post</Button>
+                        <Button bsstyle="primary">Create Post</Button>
                     </Link>
                 </Jumbotron>
             </Container>
