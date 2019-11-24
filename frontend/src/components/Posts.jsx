@@ -22,11 +22,14 @@ class PostsList extends Component {
                     <Jumbotron>
                     {_.map(myPosts, post => (
                         <Card>
-                            <Card.Header>post.title</Card.Header>
+                            <Card.Header>Post</Card.Header>
                             <Card.Body>
-                                <Card.Title>Special title treatment</Card.Title>
+                                <Card.Title>{post.title}</Card.Title>
                                 <Card.Text>
-                                With supporting text below as a natural lead-in to additional content.
+                                    <i>Body:</i> {post.body}
+                                </Card.Text>
+                                <Card.Text>
+                                    <i>Category:</i> {_.capitalize(post.category)}
                                 </Card.Text>
                                 <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
