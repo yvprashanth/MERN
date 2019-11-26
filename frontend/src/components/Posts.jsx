@@ -31,7 +31,7 @@ class PostsList extends Component {
                                 <Card.Text>
                                     <i>Category:</i> {_.capitalize(post.category)}
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Go Home</Button>
                             </Card.Body>
                         </Card>
                     ))}                        
