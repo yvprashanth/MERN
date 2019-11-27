@@ -1,5 +1,5 @@
 export const ROOT_URL = ''; // http://localhost:5000';
-export const AUTH_HEADERS = { 'Authorization': 'whatever-you-want', 'Accept': 'application/json', };
+export const AUTH_HEADERS = { 'Authorization': 'Basic '+btoa('username:password'), 'Accept': 'application/json' };
 export function guid() {
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000)

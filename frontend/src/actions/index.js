@@ -17,7 +17,7 @@ function fetchCategoriesSuccess(data) {
 
 export function fetchCategories(){
     return dispatch => {
-        fetch('http://localhost:5000/categories', {headers : {'Authorization': 'Anything you want'}})
+        fetch('http://localhost:5000/categories', {headers : AUTH_HEADERS})
             .then(response => response.json())
             .then(json => dispatch(fetchCategoriesSuccess(json)))
             .catch(err => console.log(err));
@@ -33,7 +33,7 @@ function fetchPostsSuccess(data){
 
 export function fetchPosts(){
     return dispatch => {
-        fetch('http://localhost:5000/posts', {headers: { 'Authorization': 'Anything you want'}})
+        fetch('http://localhost:5000/posts', {headers : AUTH_HEADERS})
             .then(response => response.json())
             .then(json => dispatch(fetchPostsSuccess(json)))
             .catch(err => console.log(err));
