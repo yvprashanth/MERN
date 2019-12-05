@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchCategories } from '../actions'
 import _ from 'lodash';
 import uuid from "uuid";
+import { Link } from 'react-router-dom';
 
 class CreatePost extends Component { 
     constructor(props){
@@ -102,9 +103,11 @@ class CreatePost extends Component {
                         </Form.Row>
 
                         <div className="">
-                            <Button variant="primary" type="submit" className="text-center">
-                                Submit
-                            </Button>
+                            <Link to="/posts">
+                                <Button variant="primary" type="submit" className="text-center">
+                                    Submit
+                                </Button>
+                            </Link>
                         </div>
                     </Form>
                 </Container>

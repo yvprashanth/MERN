@@ -3,6 +3,7 @@ import { Card, Container, Row, Col, Form, Button, DropdownButton, MenuItem, Drop
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
 class PostsList extends Component { 
     constructor(props){
@@ -31,7 +32,9 @@ class PostsList extends Component {
                                 <Card.Text>
                                     <i>Category:</i> {_.capitalize(post.category)}
                                 </Card.Text>
-                                <Button variant="primary">Go Home</Button>
+                                <Link to="/">
+                                    <Button variant="primary">Go Home</Button>
+                                </Link>
                             </Card.Body>
                         </Card>
                     ))}                        
