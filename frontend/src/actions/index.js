@@ -1,12 +1,11 @@
 import {
-    ROOT_URL,
-    AUTH_HEADERS,
-    guid
+    AUTH_HEADERS
 } from './constants';
 
 export const FETCH_ALL_USERS = "FETCH_ALL_USERS";
 export const FETCH_ALL_CATEGORIES = "FETCH_ALL_CATEGORIES";
 export const FETCH_ALL_POSTS = "FETCH_ALL_POSTS";
+export const CREATE_POST = "CREATE_POST";
 
 function fetchCategoriesSuccess(data) {
     return {
@@ -34,6 +33,22 @@ function fetchPostsSuccess(data){
 export function fetchPosts(){
     return dispatch => {
         fetch('http://localhost:5000/posts', {headers : AUTH_HEADERS})
+            .then(response => response.json())
+            .then(json => dispatch(fetchPostsSuccess(json)))
+            .catch(err => console.log(err));
+    }
+}             
+         
+export function createPost(data){
+    return dispatch => {
+        fetch('http://localhost:5000/posts', {
+            method: 'POST',
+            headers: new Headers({
+                'Authorization': 'Basic '+btoa('username:password'), 
+                "Content-Type": "application/json"
+            }), 
+            body: JSON.stringify(data)}
+            )
             .then(response => response.json())
             .then(json => dispatch(fetchPostsSuccess(json)))
             .catch(err => console.log(err));

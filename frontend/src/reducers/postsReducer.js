@@ -1,5 +1,6 @@
 import {
-    FETCH_ALL_POSTS
+    FETCH_ALL_POSTS, 
+    CREATE_POST
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -24,6 +25,8 @@ export default function (state = INITIAL_STATE, action) {
     switch (action.type) {
         case FETCH_ALL_POSTS:
             return action.payload;
+        case CREATE_POST:
+            return action.payload
         default:
             return state;
     }

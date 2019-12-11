@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Container, Row, Col, Form, Button, DropdownButton, MenuItem, Dropdown, Jumbotron } from 'react-bootstrap';
+import { Card, Container, Button, Jumbotron } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import _ from 'lodash';

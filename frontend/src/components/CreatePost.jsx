@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button, DropdownButton, MenuItem, Dropdown } from 'react-bootstrap';
+import { Container, Col, Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux'
-import { fetchCategories } from '../actions'
+import { fetchCategories, createPost } from '../actions'
 import _ from 'lodash';
 import uuid from "uuid";
-import { Link } from 'react-router-dom';
 
 class CreatePost extends Component { 
     constructor(props){
@@ -46,7 +45,6 @@ class CreatePost extends Component {
                 'Authorization': 'Basic '+btoa('username:password'), 
                 "Content-Type": "application/json"
             }), 
-            // body: JSON.stringify(data)
             body: JSON.stringify(data)
         }).then(function(response){
             console.log(response)
@@ -103,11 +101,11 @@ class CreatePost extends Component {
                         </Form.Row>
 
                         <div className="">
-                            <Link to="/posts">
+                            
                                 <Button variant="primary" type="submit" className="text-center">
                                     Submit
                                 </Button>
-                            </Link>
+                            
                         </div>
                     </Form>
                 </Container>
@@ -121,7 +119,8 @@ function mapStateToProps(state){
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    myfetchCategories: () => dispatch(fetchCategories())
+    myfetchCategories: () => dispatch(fetchCategories()),
+    submitPost: () => dispatch(createPost())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)

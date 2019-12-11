@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button, DropdownButton, MenuItem, Dropdown } from 'react-bootstrap';
 
 class Learnmore extends Component {
     render(){
