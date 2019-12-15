@@ -6,6 +6,7 @@ export const FETCH_ALL_USERS = "FETCH_ALL_USERS";
 export const FETCH_ALL_CATEGORIES = "FETCH_ALL_CATEGORIES";
 export const FETCH_ALL_POSTS = "FETCH_ALL_POSTS";
 export const CREATE_POST = "CREATE_POST";
+export const EDIT_POST = "EDIT_POST";
 
 function fetchCategoriesSuccess(data) {
     return {

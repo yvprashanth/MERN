@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
+import { FaEdit } from 'react-icons/fa'
 
 class PostsList extends Component { 
     constructor(props){
@@ -22,10 +23,13 @@ class PostsList extends Component {
                 <Container>
                     <Jumbotron>
                     {_.map(myPosts, post => (
-                        <Card>
+                        <Card key={post.id}>
                             <Card.Header>Post</Card.Header>
                             <Card.Body>
-                                <Card.Title>{post.title}</Card.Title>
+                                <Card.Title>
+                                <h4 style={{textAlign:"right", cursor: "pointer"}}><FaEdit /></h4>
+                                    {post.title}
+                                </Card.Title>
                                 <Card.Text>
                                     <i>Body:</i> {post.body}
                                 </Card.Text>
