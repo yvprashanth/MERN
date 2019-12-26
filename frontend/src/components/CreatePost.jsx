@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Col, Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux'
-import { fetchCategories, createPost } from '../actions'
+import { fetchCategories, createPost, fetchPostDetail } from '../actions'
 import _ from 'lodash';
 import uuid from "uuid";
 import { Redirect } from 'react-router-dom';
@@ -16,8 +16,8 @@ class CreatePost extends Component {
     state = {
         toPosts : false
     }
- 
-    componentWillMount() {
+
+    componentDidMount() {
         this.props.myfetchCategories();
     }
 
@@ -124,7 +124,8 @@ function mapStateToProps(state){
 
 const mapDispatchToProps = (dispatch) => ({
     myfetchCategories: () => dispatch(fetchCategories()),
-    submitPost: () => dispatch(createPost())
+    submitPost: () => dispatch(createPost()),
+    getPostDetail: (postId) => dispatch(fetchPostDetail(postId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)

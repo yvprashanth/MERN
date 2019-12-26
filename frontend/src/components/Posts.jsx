@@ -23,7 +23,7 @@ class PostsList extends Component {
                 <Container>
                     <Jumbotron>
                     {_.map(myPosts, post => (
-                        <Card key={post.id}>
+                        <Card id={post.id}>
                             <Card.Header>Post</Card.Header>
                             <Card.Body>
                                 <Card.Title>

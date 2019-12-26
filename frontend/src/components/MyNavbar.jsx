@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './CustomNavbar.css'
+import '../CustomNavbar.css'
 import { Link } from 'react-router-dom';
 
 class MyNavbar extends React.Component {
