@@ -18,7 +18,8 @@ class CreatePost extends Component {
     }
 
     componentDidMount() {
-        this.props.myfetchCategories();
+        console.log("Hello There")
+        this.props.myfetchCategories()
     }
 
     handleChange = (e) => {
@@ -63,7 +64,6 @@ class CreatePost extends Component {
         })
         .then(response => response.json())
         .then(data => this.setState({ posts : data, toPosts : true}))
-        // this.props.history.push('/posts/');
     }
 
     render(){
@@ -105,11 +105,10 @@ class CreatePost extends Component {
                             </select>
                             </Form.Group>                           
                         </Form.Row>
-
                         <div className="">
-                                <Button variant="primary" type="submit" className="text-center">
-                                    Submit
-                                </Button>
+                            <Button variant="primary" type="submit" className="text-center">
+                                Submit
+                            </Button>
                         </div>
                     </Form>
                 </Container>
@@ -124,8 +123,7 @@ function mapStateToProps(state){
 
 const mapDispatchToProps = (dispatch) => ({
     myfetchCategories: () => dispatch(fetchCategories()),
-    submitPost: () => dispatch(createPost()),
-    getPostDetail: (postId) => dispatch(fetchPostDetail(postId))
+    submitPost: () => dispatch(createPost())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)

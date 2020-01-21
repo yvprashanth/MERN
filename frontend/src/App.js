@@ -6,7 +6,7 @@ import MyNavbar from './components/MyNavbar'
 import Home from './components/Home'
 import CreatePost from './components/CreatePost'
 import Learnmore from './components/Learnmore'
-import Posts from './components/Posts'
+import Posts from './components/PostsList'
 
 class App extends Component {
   render() {

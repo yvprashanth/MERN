@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { Jumbotron, Container, Button } from 'react-bootstrap';
-import  PostsList  from './Posts'
+import  PostsList  from './PostsList'
 
 class Home extends Component { 
     constructor(props){

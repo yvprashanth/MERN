@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import { FaEdit } from 'react-icons/fa'
 
 class PostsList extends Component { 
     constructor(props){
@@ -23,25 +22,20 @@ class PostsList extends Component {
                 <Container>
                     <Jumbotron>
                     {_.map(myPosts, post => (
-                        <Card id={post.id}>
-                            <Card.Header>Post</Card.Header>
-                            <Card.Body>
-                                <Card.Title>
-                                <h4 style={{textAlign:"right", cursor: "pointer"}}><FaEdit /></h4>
-                                    {post.title}
-                                </Card.Title>
-                                <Card.Text>
-                                    <i>Body:</i> {post.body}
-                                </Card.Text>
-                                <Card.Text>
-                                    <i>Category:</i> {_.capitalize(post.category)}
-                                </Card.Text>
+                        <div className="card" key={post.id}>
+                            <div className="card-header">
+                                {post.title}
+                            </div>
+                            <div className="card-body">
+                                {post.body}
+                            </div>
+                            <div style={{marginLeft: '2em', marginBottom: '1em'}}>
                                 <Link to="/">
                                     <Button variant="primary">Go Home</Button>
                                 </Link>
-                            </Card.Body>
-                        </Card>
-                    ))}                        
+                            </div>
+                        </div>            
+                    ))}            
                     </Jumbotron>
                 </Container>
             </div>
