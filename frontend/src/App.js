@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
 import MyNavbar from './components/MyNavbar'
 import Home from './components/Home'
@@ -14,10 +14,12 @@ class App extends Component {
       <Router>
         <div>
           <MyNavbar />
-          <Route exact path='/' render={() => <Home />} />
-          <Route path='/createpost' render={() => <CreatePost />} />
-          <Route path='/learnmore' render={() => <Learnmore />} />
-          <Route path='/posts' render={() => <Posts />} />
+          <Switch>
+            <Route exact path='/' render={() => <Home />} />
+            <Route path='/createpost' render={() => <CreatePost />} />
+            <Route path='/learnmore' render={() => <Learnmore />} />
+            <Route path='/posts' render={() => <Posts />} />
+          </Switch>
         </div>
       </Router>
     );
