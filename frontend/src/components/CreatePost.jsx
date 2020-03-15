@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Container, Col, Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux'
-import { fetchCategories, createPost } from '../actions'
+import { fetchCategories, createPost, fetchPostDetail } from '../actions'
 import _ from 'lodash';
 import uuid from "uuid";
+import { Redirect } from 'react-router-dom';
 
 class CreatePost extends Component { 
     constructor(props){
@@ -11,9 +12,14 @@ class CreatePost extends Component {
         this.state = { title:'My Catchy Title', content: "Please enter any content", author: "King of the world", category:"", posts:[] }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
- 
-    componentWillMount() {
-        this.props.myfetchCategories();
+
+    state = {
+        toPosts : false
+    }
+
+    componentDidMount() {
+        console.log("Hello There")
+        this.props.myfetchCategories()
     }
 
     handleChange = (e) => {
@@ -57,10 +63,13 @@ class CreatePost extends Component {
             })
         })
         .then(response => response.json())
-        .then(data => this.setState({ posts : data}))
+        .then(data => this.setState({ posts : data, toPosts : true}))
     }
 
     render(){
+        if(this.state.toPosts === true) {
+            return <Redirect to="/posts/" />
+        }
         const { myStaticCategories } = this.props;
         return(
             <div>
@@ -72,7 +81,6 @@ class CreatePost extends Component {
                             <Form.Control size="lg" type="text" name="title" placeholder={this.state.title} onChange={this.handleChange}/>
                             </Form.Group>
                         </Form.Row>
-
                         <Form.Group controlId="formGridContent">
                             <Form.Label>Content</Form.Label>
                             <Form.Control as="textarea" rows="4" placeholder={this.state.content} name="content" onChange={this.handleChange} />
@@ -83,7 +91,6 @@ class CreatePost extends Component {
                             <Form.Label>Author</Form.Label>
                             <Form.Control placeholder={this.state.author} name="author" onChange={this.handleChange} />
                             </Form.Group>
-
                             <Form.Group as={Col} controlId="formGridState">
                             <Form.Label>Category</Form.Label>
                             <select className="form-control" onChange={this.handleChange}>
@@ -91,21 +98,17 @@ class CreatePost extends Component {
                                 {_.map(myStaticCategories, category => (
                                     <option
                                         key={category.name}
-                                        value={category.name}
-                                    >
+                                        value={category.name} >
                                         {_.capitalize(category.name)}
                                     </option>
                                 ))}
                             </select>
                             </Form.Group>                           
                         </Form.Row>
-
                         <div className="">
-                            
-                                <Button variant="primary" type="submit" className="text-center">
-                                    Submit
-                                </Button>
-                            
+                            <Button variant="primary" type="submit" className="text-center">
+                                Submit
+                            </Button>
                         </div>
                     </Form>
                 </Container>

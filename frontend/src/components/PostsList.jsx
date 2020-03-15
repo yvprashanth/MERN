@@ -35,9 +35,9 @@ class PostsList extends Component {
                                 <Link to="/">
                                     <Button variant="primary">Go Home</Button>
                                 </Link>
-                            </Card.Body>
-                        </Card>
-                    ))}                        
+                            </div>
+                        </div>            
+                    ))}            
                     </Jumbotron>
                 </Container>
             </div>

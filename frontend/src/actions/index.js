@@ -6,6 +6,14 @@ export const FETCH_ALL_USERS = "FETCH_ALL_USERS";
 export const FETCH_ALL_CATEGORIES = "FETCH_ALL_CATEGORIES";
 export const FETCH_ALL_POSTS = "FETCH_ALL_POSTS";
 export const CREATE_POST = "CREATE_POST";
+export const EDIT_POST = "EDIT_POST";
+export const DELETE_POST = "DELETE_POST";
+
+export const FETCH_BEGIN = "FETCH_CATEGORIES_BEGIN";
+export const FETCH_SUCCESS = "FETCH_CATEGORIES_SUCCESS";
+export const FETCH_FAILURE = "FETCH_CATEGORIES_FAILURE";
+
+const api = 'http://localhost:5000/'
 
 export const FETCH_BEGIN = "FETCH_CATEGORIES_BEGIN";
 export const FETCH_SUCCESS = "FETCH_CATEGORIES_SUCCESS";
@@ -42,6 +50,13 @@ function fetchPostsSuccess(data){
     return {
         type: FETCH_ALL_POSTS,
         payload: data
+    }
+}
+
+export function editPost(post) {
+    return {
+        type: EDIT_POST,
+        post
     }
 }
 
